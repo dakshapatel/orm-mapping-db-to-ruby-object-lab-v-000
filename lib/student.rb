@@ -11,7 +11,7 @@ class Student
 
   def self.all
     sql = <<~SQL
-      SELECT * FROM Students
+      SELECT * FROM students
       SQL
 
       DB[:conn].execute(sql).map do |row|
@@ -22,7 +22,7 @@ class Student
 
   def self.find_by_name(name)
     sql = <<~SQL
-      SELECT * FROM Students
+      SELECT * FROM students
       WHERE name = ?
       LIMIT 1
       SQL
@@ -36,7 +36,7 @@ class Student
 
   def self.count_all_students_in_grade_9
     sql = <<~SQL
-      SELECT * FROM Students
+      SELECT * FROM students
       WHERE grade = 9
       SQL
       DB[:conn].execute(sql)
@@ -45,8 +45,9 @@ class Student
 
   def self.students_below_12th_grade
     sql = <<~SQL
-      SELECT * FROM Students
+      SELECT * FROM students
       WHERE grade < 12
+      GROUP BY name
       SQL
       DB[:conn].execute(sql)
   end

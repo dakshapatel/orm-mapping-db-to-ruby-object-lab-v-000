@@ -59,8 +59,8 @@ class Student
       GROUP BY name
 
       SQL
-      
-   end
+
+   
   end
 
 

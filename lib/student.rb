@@ -58,7 +58,6 @@ class Student
       SELECT grade FROM students
       WHERE students = X
       ORDER BY names
-      
       SQL
       DB[:conn].execute(sql).first
 
@@ -78,9 +77,14 @@ class Student
     end
 
   def self.all_students_in_grade_X
+    sql = <<~SQL
+      SELECT * FROM students
+      WHERE students = X
+      ORDER BY names
+      SQL
+      DB[:conn].execute(sql).first
 
-
-  end 
+  end
 
 
   def save

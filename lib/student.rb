@@ -47,7 +47,7 @@ class Student
     sql = <<~SQL
       SELECT * FROM students
       WHERE grade < 12
-      GROUP BY name
+      ORDER BY name
       SQL
       DB[:conn].execute(sql)
   end

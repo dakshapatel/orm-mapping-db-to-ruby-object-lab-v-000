@@ -82,7 +82,7 @@ class Student
       WHERE students = X
       ORDER BY names
       SQL
-      DB[:conn].execute(sql).first
+      DB[:conn].execute(sql)
 
   end
 

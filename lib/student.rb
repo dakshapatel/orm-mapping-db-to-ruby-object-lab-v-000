@@ -33,7 +33,14 @@ class Student
   end
     # find the student in the database given a name
     # return a new instance of the Student class
-  
+
+  def self.COUNT_ALL_STUDENTS_IN_GRADE_9
+
+  end 
+
+
+
+
 
   def save
     sql = <<-SQL

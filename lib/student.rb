@@ -55,8 +55,10 @@ class Student
 
   def self.first_X_students_in_grade_10(grade)
     sql = <<~SQL
-      SELECT * FROM students
-      WHERE grade = 10
+      SELECT grade FROM students
+      WHERE students = X
+      ORDER BY names
+      
       SQL
       DB[:conn].execute(sql).first
 
@@ -74,6 +76,9 @@ def self.first_student_in_grade_10
       self.new_from_db(row)
     end.first
   end
+
+
+  
 
   def save
     sql = <<-SQL

@@ -13,11 +13,9 @@ class Student
     sql = <<~SQL
       SELECT * FROM students
       SQL
-
       DB[:conn].execute(sql).map do |row|
       self.new_from_db(row)
-
-  end
+    end
   end
 
   def self.find_by_name(name)
@@ -53,18 +51,16 @@ class Student
       end
   end
 
-  def self.first_X_students_in_grade_10(grade)
+  def self.first_X_students_in_grade_10(name)
     sql = <<~SQL
       SELECT * FROM students
-      WHERE grade = ?
+      WHERE name = ?
       LIMIT 1
       SQL
       SQL
-      DB[:conn].execute(sql, grade).map do |row|
+      DB[:conn].execute(sql, name).map do |row|
         self.new_from_db(row)
       end.first
-
-
   end
 
 

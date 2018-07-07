@@ -55,8 +55,7 @@ class Student
     sql = <<~SQL
       SELECT * FROM students
       WHERE grade = 10
-      GROUP BY name
-
+      LIMIT 1
       SQL
 
 

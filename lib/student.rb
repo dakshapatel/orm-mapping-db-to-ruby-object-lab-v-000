@@ -51,14 +51,14 @@ class Student
       end
   end
 
-  def self.first_X_students_in_grade_10(name)
+  def self.first_X_students_in_grade_10(size)
     sql = <<~SQL
       SELECT * FROM students
       WHERE name = ?
       SQL
-      DB[:conn].execute(sql, name).map do |row|
+      DB[:conn].execute(sql, size).map do |row|
         self.new_from_db(row)
-      end.length
+      end
   end
 
 
